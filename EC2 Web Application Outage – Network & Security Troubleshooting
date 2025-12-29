@@ -1,0 +1,43 @@
+## Project 1: EC2 Web Application Outage – Network & Security Troubleshooting
+
+### Environment
+- AWS EC2 (Amazon Linux, t2.micro – Free Tier)
+- Apache Web Server (httpd)
+- Default VPC, Security Groups, Internet Gateway
+
+### Problem
+A web application hosted on an EC2 instance was not accessible via its public IP address, even though the instance was running.
+
+### Symptoms
+- Browser error: `ERR_CONNECTION_TIMED_OUT` (This site can’t be reached)
+- SSH access to the instance was successful
+- EC2 status checks passed
+
+### Investigation
+- Verified EC2 instance state and health checks
+- Confirmed Apache service was running using `systemctl status httpd`
+- Reviewed Security Group inbound rules for HTTP (port 80)
+- Verified VPC route table had an Internet Gateway route
+
+### Root Cause
+The HTTP (port 80) inbound rule was missing in the Security Group, blocking external web traffic while network routing and the application service were functioning correctly.
+
+### Resolution
+- Added HTTP (port 80) inbound rule to the Security Group
+- Verified Apache service status
+- Retested access using the public IP
+
+### Outcome
+Web application access was restored successfully.
+
+### Key Learning
+- Internet Gateway provides the network path; Security Groups control traffic permissions
+- Missing Security Group rules can block application access even when instances and services are healthy
+- Layer-by-layer troubleshooting helps identify the true root cause efficiently
+
+## Skills Demonstrated
+- AWS EC2
+- VPC & Internet Gateway
+- Security Groups
+- Linux service troubleshooting
+- Root cause analysis
