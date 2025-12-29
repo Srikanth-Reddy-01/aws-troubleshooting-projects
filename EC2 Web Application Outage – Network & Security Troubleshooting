@@ -42,6 +42,4 @@ Web application access was restored successfully.
 - Linux service troubleshooting
 - Root cause analysis
 
-## Architecture / Troubleshooting Workflow
-
-![EC2 Troubleshooting Workflow](images/project1-ec2-troubleshooting.png)
+![test](./images/project1-ec2-troubleshooting.png)
