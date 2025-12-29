@@ -41,3 +41,7 @@ Web application access was restored successfully.
 - Security Groups
 - Linux service troubleshooting
 - Root cause analysis
+
+## Architecture / Troubleshooting Workflow
+
+![EC2 Troubleshooting Workflow](project1-ec2-troubleshooting.png)
